@@ -1,5 +1,7 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const postgres_user = process.env.PG_USER;
 const password = process.env.PG_PASSWORD;
