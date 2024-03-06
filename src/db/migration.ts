@@ -14,9 +14,10 @@ const migrationClient = postgres(`postgres://${postgres_user}:${password}@${host
 
 async function main() {
     try {
-        migrate(drizzle(migrationClient), {
+        await migrate(drizzle(migrationClient), {
             migrationsFolder: "src/db/migrations"
-        })
+        });
+        console.log("Migrate complete")
     } catch(err) {
         console.log("Could Not Migrate");
         console.log(err);

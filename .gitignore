@@ -2,3 +2,4 @@ node_modules
 setup
 pnpm-lock.yaml
 .env
+dist
