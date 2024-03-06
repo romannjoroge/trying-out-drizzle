@@ -20,7 +20,7 @@ app.post('/users', async (req, res) => {
     let {
         name,
         dob
-    } = req.body();
+    } = req.body;
 
     await db.insert(students).values({
         name,
@@ -41,6 +41,20 @@ app.post('/class', async (req, res) => {
 
     return res.status(201).json({message: "Class Created"});
 });
+
+app.post('/assignUser', async (req, res) => {
+    let {
+        studentid,
+        classid
+    } = req.body;
+
+    await db.insert(classStudents).values({
+        studentId: Number.parseInt(studentid),
+        classId: Number.parseInt(classid)
+    });
+
+    return res.status(201).json({message: "Assigned Student To Class"});
+})
 
 app.get('/studentsClass', async (req, res) => {
     const data = await db.select({
