@@ -3,3 +3,4 @@ setup
 pnpm-lock.yaml
 .env
 dist
+src/db/migrations
